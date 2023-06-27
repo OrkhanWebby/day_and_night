@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    overflow: hidden;
+}
+
+/* STYLING THE BUTTON */
+button {
+    --b: 3px;   
+    --s: .45em; 
+    --color: #373B44;
+    
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+      conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+      var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+    border: 0;
+  
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    font-style: italic;
+    margin: 1rem;
+      cursor: pointer;
+  }
+  
+  button:hover,
+  button:focus-visible{
+    --_p: 0px;
+    outline-color: var(--color);
+    outline-offset: .05em;
+  }
+  
+  button:active {
+    background: var(--color);
+    color: #fff;
+  }
+
+/* STYLING THE TEXT */
+.day-night {
+    position: absolute;
+    right: 30%;
+    top: 5%;
+    font-size: 7rem;
+    font-style: italic;
+    color: black;
+}
+
+/* STYLING THE IMAGE */
+img {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    z-index: 1;
+}
+.night {
+    background-color: rgb(2, 2, 77);
+    transition: 1s;
+}
+.day {
+    background-color: aqua;
+    transition: 1s;
+}
+
+/* STYLING THE SUN */
+.sun{
+    margin:50px 50%;
+    border-radius:50%;
+    width: 100px;
+    height:100px;
+    background-color: orange;
+    box-shadow: 0 0 35px 5px yellow,0 0 25px 10px yellow inset;
+    position: absolute;
+    bottom: -10rem;
+    animation: move-up forwards 10s;
+}
+
+/* STYLING THE MOON */
+.moon{
+    position:absolute;
+    margin:auto;
+    background-color:transparent;
+    height:100px;
+    width:100px;
+    border-radius:50%;
+    box-shadow:40px 20px 0 0 blanchedalmond;
+    right: 20%;
+    bottom: -10rem;
+    display: none;
+    animation: move-up forwards 10s;
+}
+    
+/* ANIMATION FOR THE SUN AND THE MOON */
+@keyframes move-up {
+100%{transform: translateY(-40rem);}
+}
+
